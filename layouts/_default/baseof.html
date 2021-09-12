@@ -16,11 +16,11 @@
     {{ $options := (dict "targetPath" "assets/style.css" "outputStyle" "compressed") }}
     {{ $style := resources.Get "style.scss" | resources.ToCSS $options }}
     {{- $options := dict "inlineImports" true }}{{ $style = $style | resources.PostCSS $options -}}
-    {{- if hugo.IsProduction }}{{ $style = $style | minify | fingerprint | resources.PostProcess }}{{ end -}}
-    {{- if hugo.IsProduction }}<link href="{{ $style.RelPermalink }}" rel="stylesheet" />{{ end }}
+    {{ $style = $style | minify | fingerprint | resources.PostProcess }}
+    <link href="{{ $style.RelPermalink }}" rel="stylesheet" />
     {{- block "headJs" . }}{{ end -}}
     {{ $js := resources.Get "index.js" | js.Build (dict "targetPath" "assets/index.js" "minify" "true") -}}
-    {{- if hugo.IsProduction }}<script src="{{ $js.Permalink }}"></script>{{ end -}}
+    <script src="{{ $js.Permalink }}"></script>
   </head>
   <body class="page page{{ delimit (split .Page.RelPermalink "/") "--" "" }}">
     {{ block "header" . }}{{ partial "layout/navbar--mega-full.html" (dict "context" . "id" "top-menu") }}{{ end }}

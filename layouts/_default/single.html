@@ -2,9 +2,9 @@
 {{- `<!-- _default/single.html  -->` | safeHTML -}}
 <section id="main" class="single container-fluid g-0 pt-5">
   <div class="bg-images d-none d-md-block pt-5 bg-light position-absolute" style="z-index: -1;">
-    {{- range .Site.Params.featuredImages }}<img class="img-fluid w-100" src="/images/landing/{{ . }}" alt="{{ site.Title }}" />{{ end -}}
-    {{- if eq .Page.RelPermalink "/works/media-art/" }}{{- range first 7 .Site.Params.featuredImages }}<img class="img-fluid w-100" src="/images/landing/{{ . }}" alt="{{ site.Title }}" />{{ end -}}{{ end -}}
-    {{- if eq .Page.RelPermalink "/program/site-research/" }}{{- range first 3 .Site.Params.featuredImages }}<img class="img-fluid w-100" src="/images/landing/{{ . }}" alt="{{ site.Title }}" />{{ end -}}{{ end -}}
+    {{- range .Site.Params.bgImages }}<img class="img-fluid w-100" src="{{ . }}" alt="{{ site.Title }}" />{{ end -}}
+    {{- if eq .Page.RelPermalink "/works/media-art/" }}{{- range first 7 .Site.Params.bgImages }}<img class="img-fluid w-100" src="{{ . }}" alt="{{ site.Title }}" />{{ end -}}{{ end -}}
+    {{- if eq .Page.RelPermalink "/program/site-research/" }}{{- range first 3 .Site.Params.bgImages }}<img class="img-fluid w-100" src="{{ . }}" alt="{{ site.Title }}" />{{ end -}}{{ end -}}
   </div>
   <div class="row pt-5">
     <div class="col-lg-6">&nbsp;</div>
