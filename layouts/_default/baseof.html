@@ -17,12 +17,10 @@
     {{ $style := resources.Get "style.scss" | resources.ToCSS $options }}
     {{- $options := dict "inlineImports" true }}{{ $style = $style | resources.PostCSS $options -}}
     {{- if hugo.IsProduction }}{{ $style = $style | minify | fingerprint | resources.PostProcess }}{{ end -}}
-    {{- if eq .Site.Params.env "development" }}<link href="{{ $style.RelPermalink }}" rel="stylesheet" />{{ else }}
-    <link href="/style.min.css" rel="stylesheet" />{{ end -}}
+    {{- if hugo.IsProduction }}<link href="{{ $style.RelPermalink }}" rel="stylesheet" />{{ end }}
     {{- block "headJs" . }}{{ end -}}
     {{ $js := resources.Get "index.js" | js.Build (dict "targetPath" "assets/index.js" "minify" "true") -}}
-    {{- if eq .Site.Params.env "development" }}<script src="{{ $js.Permalink }}"></script>{{ else }}
-    <script src="/index.js"></script>{{ end -}}
+    {{- if hugo.IsProduction }}<script src="{{ $js.Permalink }}"></script>{{ end -}}
   </head>
   <body class="page page{{ delimit (split .Page.RelPermalink "/") "--" "" }}">
     {{ block "header" . }}{{ partial "layout/navbar--mega-full.html" (dict "context" . "id" "top-menu") }}{{ end }}
