@@ -19,5 +19,4 @@
   </div>
 </section>
 {{- `<!-- _default/single.html  -->` | safeHTML -}}
-{{ $images := slice }}{{- with .Page.Params.inlineImages }}{{- range . }}{{- $image := resources.Get . -}}{{- $images := $images | append $image.RelPermalink -}}{{ end -}}{{ end -}}
 {{ end }}
