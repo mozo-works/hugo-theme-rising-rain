@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{- `<!-- /index.html  -->` | safeHTML -}}
 <div class="bg-images mt-5 container-fluid g-0">
-  {{ range .Page.Params.images }}{{- $image := resources.Get ( print "/images/landing/" . ) -}}
-  <img src="{{ $image.RelPermalink }}" alt="" class="img-fluid w-100" />
+  {{ range .Page.Params.featuredImages }}
+  <img src="{{ .RelPermalink }}" alt="" class="img-fluid w-100" />
   {{ end }}
 </div>
 {{- `<!-- /index.html  -->` | safeHTML -}}
