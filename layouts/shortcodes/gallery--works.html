@@ -1,0 +1,13 @@
+{{- with .Site.Params.work }}{{- $work = . -}}
+<div class="block--youtube row my-3 position-relative">
+  <a href="{{ $work.youtubeLink }}" target="_blank">
+    <img class="img-fluid no-bp" src="{{ $work.youtubeThumb }}" alt="{{ $work.youtubeTitle }}" />
+    <img class="img-fluid no-bp youtube-icon position-absolute" src="{{ $work.youtubeIcon }}" alt="youtube link icon" />
+  </a>
+</div>
+<div class="block--works row g-3">
+{{- range $work.images }}
+  <div class="col-md-6"><img class="img-fluid" src="{{ . }}" /></div>
+{{ end -}}
+</div>
+{{ end -}}

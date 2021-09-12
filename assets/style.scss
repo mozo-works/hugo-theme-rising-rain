@@ -1,0 +1,225 @@
+@import "../node_modules/bootstrap/scss/functions";
+
+/**
+ * Colors
+ */
+$body-bg: #f8f8f8;
+$light: $body-bg;
+$link-color: #000;
+$primary: #843b23;
+$blue: #0e5ba8;
+
+$container-gutter-x: 40px;
+$container-gutter-sm: 16px 21px;
+
+/**
+ * typography
+ */
+$font-family-base: "Gothic A1";
+$h1-font-size: 28px;
+
+$font-size-brand: 22px;
+$font-size-normal: 18px;
+$line-height-brand: 32px;
+$line-height-normal: 27px;
+
+/**
+ * typography - sm
+ */
+$font-size-brand-sm: 16px;
+$line-height-brand-sm: 19px;
+$font-size-normal-sm: 14px;
+$line-height-normal-sm: 17px;
+$line-height-paragraph-sm: 24px;
+$font-size-small-sm: 12px;
+$line-height-small-sm: 14px;
+
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/**
+ * 기본 양식
+ */
+h1 {
+  font-size: $font-size-normal;
+  font-weight: 900;
+  color: $primary;
+  padding-bottom: 32px;
+}
+.text-black {
+  color: #000;
+}
+
+/**
+ * 상단 메뉴
+ */
+.navbar.fixed-top {
+  padding: 25px 40px;
+  z-index: 10001;
+  .menu-parent {
+    font: normal normal 700 #{$font-size-normal}/#{$line-height-normal} "Gothic A1";
+    .navbar-brand {
+      font-size: $font-size-brand;
+    }
+    .dropdown-toggle::after {
+      display: none;
+    }
+    .nav-item.active > .nav-link {
+      color: $primary;
+    }
+  }
+  .menu-children {
+    &.invisible {
+      opacity: 0;
+    }
+    padding: 0 $container-gutter-x $font-size-normal $container-gutter-x;
+    top: 60px;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity .25s ease-out;
+    font: normal normal 600 #{$font-size-normal}/#{$line-height-normal} "Gothic A1";
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: $container-gutter-sm;
+    .menu-parent {
+      font: normal normal 700 #{$font-size-brand-sm}/#{$line-height-brand-sm} "Gothic A1";
+      .navbar-brand {
+        font-size: $font-size-brand-sm;
+      }
+    }
+    .navbar-toggler {
+      padding: 0;
+      &.collapsed > .navbar-toggler-icon:before {
+        content: "≡";
+      }
+      .navbar-toggler-icon {
+        font-size: 20px !important;
+        width: auto !important;
+        height: auto !important;
+        &:focus-visible {
+          outline: none;
+        }
+        &:before {
+          content: "×";
+        }
+      }
+    }
+    .menu-children {
+      padding: 40px 0;
+      font: normal normal 600 #{$font-size-normal-sm}/#{$line-height-normal-sm} "Gothic A1";
+      .nav-item--parent {
+        margin: $line-height-normal-sm 0;
+      }
+      .nav-item--children {
+        font-weight: 500;
+        font-size: $font-size-small-sm;
+        line-height: $line-height-small-sm;
+        margin: $line-height-small-sm 0;
+      }
+    }
+  }
+}
+
+/**
+ * 상세화면
+ */
+.single {
+  .block--content {
+    padding: 69px 40px 69px 28px;
+    @include media-breakpoint-down(sm) {
+      padding: 35px 21px;
+    }
+  }
+  #content {
+    line-height: $line-height-brand;
+    p { margin-bottom: $line-height-brand; }
+    a, blockquote { color: $blue; }
+    img { max-width: 100%; }
+    figcaption h4 {
+      font-size: $font-size-normal;
+      line-height: $line-height-normal;
+      padding: .5rem 0;
+    }
+    @include media-breakpoint-down(sm) {
+      line-height: $line-height-paragraph-sm;
+      p {
+        font-size: $font-size-normal-sm;
+        margin-bottom: $line-height-paragraph-sm;
+      }
+      a, blockquote { color: $blue; }
+      img { max-width: 100%; }
+      figcaption h4 {
+        font-size: $font-size-normal-sm;
+        line-height: $line-height-normal-sm;
+        padding: .5rem 0;
+      }
+    }
+  }
+}
+
+.page {
+  &--about {
+    h1 {
+      color: $black;
+      font-size: $h1-font-size;
+      @include media-breakpoint-down(sm) {
+        font-size: $font-size-normal;
+      }
+    }
+  }
+  #content {
+    ul {
+      padding: 0;
+      list-style-type: none;
+      li {
+        padding: 0;
+        &:before {
+          content: '- ';
+        }
+        @include media-breakpoint-down(sm) {
+          font-size: $font-size-normal-sm;
+        }
+      }
+    }
+  }
+  .youtube-icon {
+    width: 170px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include media-breakpoint-down(sm) {
+      width: 85px;
+    }
+  }
+}
+
+/**
+ * bicpicture
+ */
+#bp_container {
+  top: 90px !important;
+  background: $body-bg !important;
+  #bp_count {
+    display: none;
+  }
+  svg {
+    fill: $black !important;
+  }
+  .bp-x {
+    width: 30px !important;
+    right: 40px !important;
+    margin-top: -15px !important;
+    font-size: 30px !important;
+  }
+  .bp-lr {
+    opacity: 1 !important;
+    font-size: 30px !important;
+  }
+  img {
+    box-shadow: none !important;
+    max-height: 90% !important;
+    margin-top: 0 !important;
+  }
+}

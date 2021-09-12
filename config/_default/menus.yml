@@ -1,0 +1,12 @@
+main:
+  - name: About
+    url: /about/
+    weight: -110
+  - name: Works
+    url: /works/
+    weight: -100
+  - name: Sculpture
+    url: /works/sculpture
+    parent: Works
+    weight: -99
+  

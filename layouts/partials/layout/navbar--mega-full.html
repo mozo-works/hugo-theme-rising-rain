@@ -1,0 +1,70 @@
+{{ $currentPage := .context }}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light	d-none d-md-block"{{ with .id }} id="{{ . }}"{{ end }}>
+  <div class="menu-parent container-fluid g-0">
+    <div class="col">
+      <a class="navbar-brand" href="/">{{ .context.Site.Title }}</a>
+    </div>
+    <div class="col">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="row g-0 justify-content-between align-items-center">
+        <div class="col-lg-6 collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          {{ range .context.Site.Menus.main }}
+          <div class="nav-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}} position-static">
+            <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+          </div>
+          {{ end }}
+        </div>
+        <div class="col-lg-6 text-end">
+          <a class="navbar-brand me-0" href="/">{{ .context.Site.Params.TitleEn }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-children mt-1 invisible bg-light row g-0 position-absolute start-0 w-100 justify-content-between align-items-center">
+    <div class="col-lg-6">&nbsp;</div>
+    <div class="col-lg-6 row g-0">
+        <div class="col-lg-6 justify-content-between d-flex">
+          {{ partial "layout/navbar--children.html" (dict "context" $currentPage) }}
+        </div>
+        <div class="col-lg-6 text-end">&nbsp;</div>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar fixed-top d-block d-md-none bg-light">
+  <div class="menu-parent container-fluid g-0">
+    <a class="navbar-brand me-0" href="/">{{ .context.Site.Title }}</a>
+    <a class="navbar-brand me-0" href="/">{{ .context.Site.Params.TitleEn }}</a>
+    <button class="navbar-toggler collapsed me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentSm">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="menu-children collapse navbar-collapse text-center vh-100" id="navbarSupportedContentSm">
+    <ul class="navbar-nav">
+  {{ range .context.Site.Menus.main }}
+    {{ if .HasChildren }}
+      <li class="nav-item nav-item--parent{{ if $currentPage.HasMenuCurrent " main" . }} active{{ end }}">
+        <a class="nav-link" href="#">
+          <span>{{ .Name }}</span>
+        </a>
+        <ul class="list-unstyled">
+          {{ range .Children }}
+          <li class="nav-item nav-item--children{{ if $currentPage.IsMenuCurrent " main" . }} active{{ end }}">
+            <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </li>
+      {{ else }}
+      <li class="nav-item nav-item--parent{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}">
+        <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">
+          <span>{{ .Name }}</span>
+        </a>
+      </li>
+      {{ end }}
+    {{ end }}
+      </ul>
+  </div>
+</nav>

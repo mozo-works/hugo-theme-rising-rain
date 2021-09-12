@@ -1,0 +1,7 @@
+languageCode: ko-kr
+hasCJKLanguage: true
+
+build:
+  writeStats: true
+
+googleAnalytics:

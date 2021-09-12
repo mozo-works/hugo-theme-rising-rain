@@ -1,0 +1,9 @@
+{{ range .context.Site.Menus.main }}
+<div class="menu-item--children menu-item--children--{{ .Identifier }}">
+  {{ if .HasChildren }}{{ range .Children }}
+  <a class="nav-link py-0" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+  {{ end }}{{ else }}
+  <a class="nav-link py-0 invisible" href="{{ .URL }}">{{ .Name }}</a>
+  {{ end }}
+</div>
+{{ end }}

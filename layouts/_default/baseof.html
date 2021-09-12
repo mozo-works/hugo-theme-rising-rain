@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+    {{ hugo.Generator }}
+    {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}<meta name="robots" content="index, follow" />{{ else }}<meta name="robots" content="noindex, nofollow" />{{ end -}}
+    {{- template "_internal/google_analytics.html" . -}}
+    {{- template "_internal/opengraph.html" . -}}
+    {{- template "_internal/twitter_cards.html" . -}}
+    {{- template "_internal/schema.html" . -}}
+    {{- partial "layout/google-fonts.html" .Site.Params.googleFonts -}}
+    {{- block "headCss" . }}{{ end -}}
+    {{ $options := (dict "targetPath" "assets/style.css" "outputStyle" "compressed") }}
+    {{ $style := resources.Get "style.scss" | resources.ToCSS $options }}
+    {{- $options := dict "inlineImports" true }}{{ $style = $style | resources.PostCSS $options -}}
+    {{- if hugo.IsProduction }}{{ $style = $style | minify | fingerprint | resources.PostProcess }}{{ end -}}
+    {{- if eq .Site.Params.env "development" }}<link href="{{ $style.RelPermalink }}" rel="stylesheet" />{{ else }}
+    <link href="/style.min.css" rel="stylesheet" />{{ end -}}
+    {{- block "headJs" . }}{{ end -}}
+    {{ $js := resources.Get "index.js" | js.Build (dict "targetPath" "assets/index.js" "minify" "true") -}}
+    {{- if eq .Site.Params.env "development" }}<script src="{{ $js.Permalink }}"></script>{{ else }}
+    <script src="/index.js"></script>{{ end -}}
+  </head>
+  <body class="page page{{ delimit (split .Page.RelPermalink "/") "--" "" }}">
+    {{ block "header" . }}{{ partial "layout/navbar--mega-full.html" (dict "context" . "id" "top-menu") }}{{ end }}
+    {{ block "main" . }}{{ end }}
+    {{ block "footer" . }}{{ end }}
+    {{ block "pageBottom" . }}{{ end }}
+  </body>
+</html>

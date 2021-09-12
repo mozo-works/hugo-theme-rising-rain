@@ -1,0 +1,16 @@
+titleEn: 
+
+title: 
+description: 
+images:
+
+license:
+  title_of_work: This website
+  link_to_work: $URL
+  createor_of_work: $NAME
+  link_to_creator_profile: $URL
+  year_of_creation: $YEAR
+
+featuredImages:
+  - image1.png
+  - image2.jpg
