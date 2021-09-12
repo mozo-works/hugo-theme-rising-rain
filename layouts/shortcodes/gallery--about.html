@@ -1,17 +1,17 @@
-{{- with .Site.Params.about }}{{- $images = .images -}}
+{{- with .Site.Params.about }}
 <div class="image-gallery">
   <div class="col-md-9 g-0">
     <div class="row g-3">
       <div class="col-md-8">
-        <img class="img-fluid" src="{{ index (index $images 0) "src" }}" alt="{{ index (index $images 0) "title" }}" />
+        <img class="img-fluid" src="{{ index (index .images 0) "src" }}" alt="{{ index (index .images 0) "title" }}" />
       </div>
       <div class="col-md-4">
-        <img class="img-fluid h-100" src="{{ index (index $images 1) "src" }}" alt="{{ index (index $images 1) "title" }}" />
+        <img class="img-fluid h-100" src="{{ index (index .images 1) "src" }}" alt="{{ index (index .images 1) "title" }}" />
       </div>
     </div>
   </div>
   <div class="row col-md-9 g-0 mt-3">
-    <img class="img-fluid" src="{{ index (index $images 2) "src" }}" alt="{{ index (index $images 2) "title" }}" />
+    <img class="img-fluid" src="{{ index (index .images 2) "src" }}" alt="{{ index (index .images 2) "title" }}" />
   </div>
   <p class="mt-5">
     {{ .sourceTitle }}<br />
