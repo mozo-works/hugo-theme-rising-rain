@@ -59,7 +59,8 @@
       "main",
       "navbarSupportedContent",
       "title",
-      "top-menu"
+      "top-menu",
+      "bp_container"
     ]
   }
 }
