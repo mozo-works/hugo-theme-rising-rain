@@ -58,7 +58,9 @@ h1 {
   padding: 25px 40px;
   z-index: 10001;
   .menu-parent {
-    font: normal normal 700 #{$font-size-normal}/#{$line-height-normal} "Gothic A1";
+    font-weight: 700;
+    font-size: $font-size-normal;
+    line-height: $line-height-normal;
     .navbar-brand {
       font-size: $font-size-brand;
     }
@@ -78,13 +80,17 @@ h1 {
     z-index: 10000;
     opacity: 1;
     transition: opacity .25s ease-out;
-    font: normal normal 600 #{$font-size-normal}/#{$line-height-normal} "Gothic A1";
+    font-weight: 600;
+    font-size: $font-size-normal;
+    line-height: $line-height-normal
   }
 
   @include media-breakpoint-down(sm) {
     padding: $container-gutter-sm;
     .menu-parent {
-      font: normal normal 700 #{$font-size-brand-sm}/#{$line-height-brand-sm} "Gothic A1";
+      font-weight: 700;
+      font-size: $font-size-brand;
+      line-height: $line-height-brand;
       .navbar-brand {
         font-size: $font-size-brand-sm;
       }
@@ -108,7 +114,9 @@ h1 {
     }
     .menu-children {
       padding: 40px 0;
-      font: normal normal 600 #{$font-size-normal-sm}/#{$line-height-normal-sm} "Gothic A1";
+      font-weight: 600;
+      font-size: $font-size-normal;
+      line-height: $line-height-normal;
       .nav-item--parent {
         margin: $line-height-normal-sm 0;
       }
