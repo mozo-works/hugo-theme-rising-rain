@@ -10,6 +10,7 @@ module.exports = {
         './hugo_stats.json',
         './layouts/**/*.html',
       ],
+      safelist: ['bp_container', 'show', 'hide'],
       extractors: [{
         extractor: (content) => {
           let els = JSON.parse(content).htmlElements;
