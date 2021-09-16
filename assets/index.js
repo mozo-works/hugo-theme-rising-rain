@@ -57,12 +57,9 @@ window.addEventListener('DOMContentLoaded', () => {
   if (!mediaDown('lg') && bigPictures) {
     // bigPicture 용도로 이미지 마크업 수정
     bigPictures.forEach((image, index) => {
-      image.setAttribute('data-bp', image.src)
-      let a = document.createElement('a')
       // 전체화면용 이미지 파일을 제공합니다.
       let fullImage = image.src.replace('.jpg', '-full.jpg').replace('.png', '-full.png')
-      a.setAttribute('href', fullImage)
-      image.parentNode.appendChild(a);
+      image.setAttribute('data-bp', fullImage)
       // 프로젝트 상세 화면 이미지 클릭 시 bigPicture 띄우기.
       image.addEventListener('click', e => {
         e.preventDefault();
