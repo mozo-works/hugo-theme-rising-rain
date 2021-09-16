@@ -85,7 +85,6 @@ window.addEventListener('DOMContentLoaded', () => {
   let publicProgram = $('.page--program--public-program')
   if (!mediaDown('lg') && publicProgram) {
     let height = $('.bg-images img').clientHeight
-    console.log(height);
     if (height === 0) {
       $('.block--content').style.height = 'auto'
     }
