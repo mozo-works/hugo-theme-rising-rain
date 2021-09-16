@@ -59,7 +59,9 @@ window.addEventListener('DOMContentLoaded', () => {
     bigPictures.forEach((image, index) => {
       image.setAttribute('data-bp', image.src)
       let a = document.createElement('a')
-      a.setAttribute('href', image.src)
+      // 전체화면용 이미지 파일을 제공합니다.
+      let fullImage = image.src.replace('.jpg', '-full.jpg').replace('.png', '-full.png')
+      a.setAttribute('href', fullImage)
       image.parentNode.appendChild(a);
       // 프로젝트 상세 화면 이미지 클릭 시 bigPicture 띄우기.
       image.addEventListener('click', e => {
