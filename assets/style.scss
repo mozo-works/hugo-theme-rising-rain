@@ -114,17 +114,18 @@ h1 {
     }
     .menu-children {
       padding: 40px 0;
-      font-weight: 600;
-      font-size: $font-size-normal;
-      line-height: $line-height-normal;
+      .nav-link { padding: 0; }
       .nav-item--parent {
-        margin: $line-height-normal-sm 0;
+        margin-top: 70px;
+        font-size: $font-size-normal-sm;
+        font-weight: 700;
+        line-height: $line-height-normal-sm;
       }
       .nav-item--children {
         font-weight: 500;
         font-size: $font-size-small-sm;
         line-height: $line-height-small-sm;
-        margin: $line-height-small-sm 0;
+        margin-top: 20px;
       }
     }
   }
