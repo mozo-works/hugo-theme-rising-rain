@@ -9,6 +9,7 @@ $link-color: #000;
 $primary: #843b23;
 $blue: #0e5ba8;
 
+$container-gutter: 25px 40px;
 $container-gutter-x: 40px;
 $container-gutter-sm: 16px 21px;
 
@@ -55,7 +56,7 @@ h1 {
  * 상단 메뉴
  */
 .navbar.fixed-top {
-  padding: 25px 40px;
+  padding: $container-gutter;
   z-index: 10001;
   .menu-parent {
     font-weight: 700;
@@ -113,7 +114,7 @@ h1 {
       }
     }
     .menu-children {
-      padding: 40px 0;
+      padding: 0;
       .nav-link { padding: 0; }
       .nav-item--parent {
         margin-top: 70px;
@@ -228,6 +229,7 @@ h1 {
   }
   img {
     box-shadow: none !important;
+    max-width: 90% !important;
     max-height: 90% !important;
     margin-top: 0 !important;
   }

@@ -16,16 +16,17 @@
     {{ $options := (dict "targetPath" "assets/style.css" "outputStyle" "compressed") }}
     {{ $style := resources.Get "style.scss" | resources.ToCSS $options }}
     {{- $options := dict "inlineImports" true }}{{ $style = $style | resources.PostCSS $options -}}
-    {{ $style = $style | minify | fingerprint | resources.PostProcess }}
+    {{- if hugo.IsProduction }}{{ $style = $style | minify | fingerprint | resources.PostProcess }}{{ end -}}
     <link href="{{ $style.RelPermalink }}" rel="stylesheet" />
     {{- block "headJs" . }}{{ end -}}
     {{ $js := resources.Get "index.js" | js.Build (dict "targetPath" "assets/index.js" "minify" "true") -}}
-    <script src="{{ $js.Permalink }}"></script>
+    <script defer src="{{ $js.Permalink }}"></script>
   </head>
-  <body class="page page{{ delimit (split .Page.RelPermalink "/") "--" "" }}">
+  <body class="page{{ if .IsHome }} page--front{{ else }} page{{ delimit (split .Page.RelPermalink "/") "--" "" }}{{ end }}">
     {{ block "header" . }}{{ partial "layout/navbar--mega-full.html" (dict "context" . "id" "top-menu") }}{{ end }}
     {{ block "main" . }}{{ end }}
     {{ block "footer" . }}{{ end }}
     {{ block "pageBottom" . }}{{ end }}
+    <h1>test</h1>
   </body>
 </html>
