@@ -22,13 +22,15 @@
       </div>
     </div>
   </div>
-  <div class="menu-children mt-1 invisible bg-light row g-0 position-absolute start-0 w-100 justify-content-between align-items-center">
-    <div class="col-lg-6">&nbsp;</div>
-    <div class="col-lg-6 row g-0">
-        <div class="col-lg-6 justify-content-between d-flex">
+  <div class="menu-children invisible mt-1 bg-light container-fluid g-0 position-absolute start-0 w-100">
+    <div class="col">&nbsp;</div>
+    <div class="col row g-0">
+        <div class="col justify-content-between d-flex">
           {{ partial "layout/navbar--children.html" (dict "context" $currentPage) }}
         </div>
-        <div class="col-lg-6 text-end">&nbsp;</div>
+        <div class="col text-end">
+          <a class="navbar-brand me-0 invisible" href="/">{{ .context.Site.Params.TitleEn }}</a>
+        </div>
     </div>
   </div>
 </nav>

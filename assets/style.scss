@@ -83,7 +83,7 @@ h1 {
     transition: opacity .5s ease-out;
     font-weight: 600;
     font-size: $font-size-normal;
-    line-height: $line-height-normal
+    line-height: $line-height-normal;
   }
 
   @include media-breakpoint-down(sm) {
