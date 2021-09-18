@@ -65,7 +65,6 @@ window.addEventListener('DOMContentLoaded', () => {
         BigPicture({
           el: e.target,
           gallery: '.image-gallery',
-          noLoader: true,
           loop: true,
           animationStart: () => {
             $('#bp_container .bp-x').innerHTML = '×'
