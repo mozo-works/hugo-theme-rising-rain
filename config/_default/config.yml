@@ -4,7 +4,7 @@ hasCJKLanguage: true
 disableKinds:
   taxonomy
   term
-  
+
 build:
   writeStats: true
 

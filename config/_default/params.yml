@@ -1,7 +1,7 @@
-titleEn: 
+titleEn:
 
-title: 
-description: 
+title:
+description:
 images:
 
 license:
@@ -14,3 +14,5 @@ license:
 featuredImages:
   - image1.png
   - image2.jpg
+
+# themeNoPipe: true

@@ -13,14 +13,22 @@
     {{- template "_internal/schema.html" . -}}
     {{- partial "layout/google-fonts.html" .Site.Params.googleFonts -}}
     {{- block "headCss" . }}{{ end -}}
-    {{ $options := (dict "targetPath" "assets/style.css" "outputStyle" "compressed") }}
-    {{ $style := resources.Get "style.scss" | resources.ToCSS $options }}
-    {{- $options := dict "inlineImports" true }}{{ $style = $style | resources.PostCSS $options -}}
-    {{- if hugo.IsProduction }}{{ $style = $style | minify | fingerprint | resources.PostProcess }}{{ end -}}
+    {{- if .Site.Params.themeNoPipe }}
+    <link href="/assets/style.min.css" rel="stylesheet" />
+    {{ else }}
+      {{ $options := (dict "targetPath" "assets/style.css" "outputStyle" "compressed") }}
+      {{ $style := resources.Get "style.scss" | resources.ToCSS $options }}
+      {{- $options := dict "inlineImports" true }}{{ $style = $style | resources.PostCSS $options -}}
+      {{- if hugo.IsProduction }}{{ $style = $style | minify | resources.PostProcess }}{{ end -}}
     <link href="{{ $style.RelPermalink }}" rel="stylesheet" />
-    {{- block "headJs" . }}{{ end -}}
-    {{ $js := resources.Get "index.js" | js.Build (dict "targetPath" "assets/index.js" "minify" "true") -}}
-    <script defer src="{{ $js.Permalink }}"></script>
+    {{ end -}}{{- block "headJs" . }}{{ end -}}
+    {{- if .Site.Params.themeNoPipe }}
+    <script src="/assets/index.min.js" defer></script>
+    {{ else }}
+      {{- $js := resources.Get "index.js" | js.Build (dict "targetPath" "assets/index.js") -}}
+      {{- if hugo.IsProduction }}{{ $js = $js | minify }}{{ end -}}
+    <script src="{{ $js.RelPermalink }}" defer></script>
+    {{ end -}}
   </head>
   <body class="page{{ if .IsHome }} page--front{{ else }} page{{ delimit (split .Page.RelPermalink "/") "--" "" }}{{ end }}">
     {{ block "header" . }}{{ partial "layout/navbar--mega-full.html" (dict "context" . "id" "top-menu") }}{{ end }}
