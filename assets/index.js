@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let navbar = $('.navbar.fixed-top')
   if (!mediaDown('lg')) {
     // 부모, 자식 메뉴 컬럼 시작 위치 맞추기.
-    let marginsRight = ['0px', '-29.9062px', '-55.5469px']
+    let marginsRight = ['0px', '-44.9062px', '-55.5469px']
     navbar.querySelectorAll('.nav-item').forEach((node, i) => {
       let children = $$('.menu-item--children')
       children[i].style.marginRight = marginsRight[i]
@@ -89,7 +89,7 @@ window.addEventListener('DOMContentLoaded', () => {
     else {
       $('.block--content').style.height = height + 'px'
     }
-    
+
   }
 
 })

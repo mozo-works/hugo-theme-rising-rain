@@ -10,9 +10,9 @@
       </button>
       <div class="row g-0 justify-content-between align-items-center">
         <div class="col-lg-6 collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-          {{ range .context.Site.Menus.main }}
-          <div class="nav-item{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}} position-static">
-            <a class="nav-link" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+          {{ range $i, $item := .context.Site.Menus.main }}
+          <div class="nav-item{{ if or ($currentPage.IsMenuCurrent "main" $item) ($currentPage.HasMenuCurrent "main" $item) }} active{{end}} position-static{{ if eq $i 0 }} first{{ end }}">
+            <a class="nav-link" href="{{ $item.URL }}" title="{{ $item.Title }}">{{ $item.Name }}</a>
           </div>
           {{ end }}
         </div>

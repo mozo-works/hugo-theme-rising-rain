@@ -71,6 +71,9 @@ h1 {
     .nav-item.active > .nav-link {
       color: $primary;
     }
+    .first {
+      margin-left: 15px;
+    }
   }
   .menu-children {
     &.invisible {
