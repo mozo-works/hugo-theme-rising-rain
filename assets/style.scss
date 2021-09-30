@@ -140,9 +140,14 @@ h1 {
     @include media-breakpoint-down(sm) {
       padding: 35px 21px;
     }
+    h2 {
+      font-size: 28px;
+      line-height: 32px;
+    }
   }
   #content {
     line-height: $line-height-brand;
+    word-break: keep-all;
     p { margin-bottom: $line-height-brand; }
     a, blockquote { color: $blue; }
     img { max-width: 100%; }

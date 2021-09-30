@@ -76,20 +76,4 @@ window.addEventListener('DOMContentLoaded', () => {
       })
     })
   }
-
-  /**
-   * Public Program - 콘텐츠 영역 첫번째 이미지 높이와 동일하게
-   */
-  let publicProgram = $('.page--program--public-program')
-  if (!mediaDown('lg') && publicProgram) {
-    let height = $('.bg-images img').clientHeight
-    if (height === 0) {
-      $('.block--content').style.height = 'auto'
-    }
-    else {
-      $('.block--content').style.height = height + 'px'
-    }
-
-  }
-
 })

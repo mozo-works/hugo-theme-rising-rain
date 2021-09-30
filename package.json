@@ -6,11 +6,11 @@
 		"type": "git",
 		"url": "https://github.com/mozodev/hugo-theme-rising-rain.git"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@fullhuman/postcss-purgecss": "^4.0.3",
 		"@popperjs/core": "^2.9.3",
 		"autoprefixer": "^10.3.1",
+		"bigpicture": "^2.5.3",
 		"bootstrap": "^5.1.0",
 		"bootstrap-icons": "^1.5.0",
 		"postcss": "^8.3.6",
