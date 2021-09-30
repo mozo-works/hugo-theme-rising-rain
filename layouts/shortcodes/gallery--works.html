@@ -1,9 +1,8 @@
 {{- with .Site.Params.work }}
-<div class="block--youtube row my-3 position-relative">
-  <a href="{{ .youtubeLink }}" target="_blank">
-    <img class="img-fluid w-100 no-bp" src="{{ .youtubeThumb }}" alt="{{ .youtubeTitle }}" />
-    <img class="img-fluid no-bp youtube-icon position-absolute" src="{{ .youtubeIcon }}" alt="youtube link icon" />
-  </a>
+<div class="block--youtube row my-3 position-relative" style="padding: 0 .8rem">
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe src="https://www.youtube.com/embed/2xT4SsgoAXU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  </div>
 </div>
 <div class="block--works row g-3">
 {{- range .images }}

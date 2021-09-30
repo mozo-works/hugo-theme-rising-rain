@@ -76,4 +76,14 @@ window.addEventListener('DOMContentLoaded', () => {
       })
     })
   }
+
+  /**
+   * youtube embed modest branding
+   */
+  let youtubes = $$('iframe[src*="https://www.youtube.com"]')
+  if (youtubes) {
+    youtubes.forEach( youtube => {
+      youtube.setAttribute('src', youtube.getAttribute('src') + '?controls=0&modestbranding=1&rel=0' )
+    })
+  }
 })
