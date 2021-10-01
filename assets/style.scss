@@ -144,7 +144,10 @@ h1 {
       font-size: 28px;
       font-weight: 700;
       line-height: 32px;
-      margin-top: 36px;
+      margin-top: 40px;
+      .page--works--media-art & {
+        margin-bottom: 32px;
+      }
     }
   }
   #content {
