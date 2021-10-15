@@ -9,6 +9,9 @@ $link-color: #000;
 $primary: #843b23;
 $blue: #0e5ba8;
 
+/**
+ * Grids
+ */
 $container-gutter: 25px 40px;
 $container-gutter-x: 40px;
 $container-gutter-sm: 16px 21px;
@@ -84,6 +87,9 @@ h1 {
     font-size: $font-size-normal;
     line-height: $line-height-normal;
   }
+  .navbar-toggler-icon:before {
+    content: "≡";
+  }
 
   @include media-breakpoint-down(sm) {
     padding: $container-gutter-sm;
@@ -125,6 +131,33 @@ h1 {
         font-weight: 500;
         font-size: $font-size-small-sm;
         line-height: $line-height-small-sm;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #top-menu--mobile {
+    .navbar-toggler-icon {
+      border-radius: .5rem;
+      padding: 0 !important;
+      font-size: 30px !important;
+      line-height: 42px !important;
+    }
+    .menu-children {
+      padding: 0;
+      .nav-link { padding: 0; }
+      .nav-item--parent {
+        margin-top: 70px;
+        font-size: $font-size-normal;
+        font-weight: 700;
+        line-height: $line-height-normal;
+      }
+      .nav-item--children {
+        font-weight: 500;
+        font-size: $font-size-normal;
+        line-height: $line-height-normal;
         margin-top: 20px;
       }
     }

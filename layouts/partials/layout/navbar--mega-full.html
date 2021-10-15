@@ -1,5 +1,5 @@
 {{ $currentPage := .context }}
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light	d-none d-md-block"{{ with .id }} id="{{ . }}"{{ end }}>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light d-none d-md-block"{{ with .id }} id="{{ . }}"{{ end }}>
   <div class="menu-parent container-fluid g-0">
     <div class="col">
       <a class="navbar-brand" href="/">{{ .context.Site.Title }}</a>
@@ -35,7 +35,7 @@
   </div>
 </nav>
 
-<nav class="navbar fixed-top d-block d-md-none bg-light">
+<nav class="navbar fixed-top d-block d-md-none bg-light" id="top-menu--mobile">
   <div class="menu-parent container-fluid g-0">
     <a class="navbar-brand me-0" href="/">{{ .context.Site.Title }}</a>
     <a class="navbar-brand me-0" href="/">{{ .context.Site.Params.TitleEn }}</a>

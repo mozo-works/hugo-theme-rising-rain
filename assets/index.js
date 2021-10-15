@@ -37,6 +37,14 @@ window.addEventListener('DOMContentLoaded', () => {
       $('.menu-children').classList.add('invisible')
     }, false)
   }
+  else {
+    $('.collapse.navbar-collapse').setAttribute('style', 'display: none !important');
+    $('.justify-content-between.align-items-center .col-lg-6.text-end').classList.remove('text-end');
+    $('.navbar-toggler').setAttribute('style', 'display: block !important;');
+    $('.navbar-toggler').classList.add('float-end');
+    $('.navbar.fixed-top.d-block.d-md-none').setAttribute('style', 'display: block !important');
+    $('.menu-children .navbar-nav').style.marginTop = '100px';
+  }
 
   // 외부 링크는 새창으로
   let internal = location.host.replace("www.", "");
